@@ -11,6 +11,6 @@ enum alphabeta {A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V
 
 
 void preprocess(string text, string pattern);
-void search(string text, string pattern);
+string search(string text, string pattern);
 
 #endif

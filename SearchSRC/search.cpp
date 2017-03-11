@@ -5,7 +5,7 @@ void preprocess(string text, string pattern) {
 
 }
 
-void search(string text, string pattern) {
+string search(string text, string pattern) {
 	// The end condition to signal the text is done
 	int text_end = text.size() - 1;
 	
@@ -15,20 +15,29 @@ void search(string text, string pattern) {
 	string found = "";
 	for(int i = pattern.size()-1; i >= 0; i--) {
 		if (text[i_text] == pattern[i]) {
-			i_text--;
+			// We've found a match and are adding the index of where the match is
 			if (!i) {
 				found += to_string(i)+'#';
 				i = pattern.size() - 1;
-				// TODO: Need to add something to set i_text to the next appropriate value
+				i_text += (pattern.size() * 2) - 1;
+				// thisisitthisisit
+				// thisisit
 			}
-			continue;
+			else {
+				i_text--;
+			}
+		}
+		else if () {
+			// Chars don't match, doing with bad match or good suffix
+
 		}
 
 
 		// This should always go at the end of the loop
+		// Indicates the end of the text; search is done
 		if (i_text >= text_end) break;
 	}
-	cout << found;
+	return found;
 }
 
 
