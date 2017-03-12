@@ -18,7 +18,6 @@ string search(string text, string pattern) {
 	string found = "";
 	for(int i = pattern.size()-1; i >= 0; i--) {
 		if (text[i_text] == pattern[i]) {
-			break;
 			// We've found a match and are adding the index of where the match is
 			if (!i) {
 				found += to_string(i)+'#';
@@ -31,9 +30,13 @@ string search(string text, string pattern) {
 				i_text--;
 			}
 		}
-		else if () {
+		else {
 			// Chars don't match, doing with bad match or good suffix
+			// Bad match
+			int bad_match_i = pattern.substr(0, i).find_last_of(text[i_text]);
+			
 
+			// Good suffix
 		}
 
 
@@ -46,8 +49,8 @@ string search(string text, string pattern) {
 
 
 int main(){
-	string text = "Hey you over there, hey!";
-    string pattern = "Hey";
+	string text = "Hello you over there, hey!";
+    string pattern = "Leylo";
 	search(text, pattern);
 	return 0;
 }
