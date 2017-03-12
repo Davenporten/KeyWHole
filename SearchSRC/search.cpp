@@ -6,6 +6,9 @@ void preprocess(string text, string pattern) {
 }
 
 string search(string text, string pattern) {
+	transform(text.begin(), text.end(), text.begin(),(int (*)(int))tolower);
+	transform(pattern.begin(), pattern.end(), pattern.begin(),(int (*)(int))tolower);
+
 	// The end condition to signal the text is done
 	int text_end = text.size() - 1;
 	
@@ -15,6 +18,7 @@ string search(string text, string pattern) {
 	string found = "";
 	for(int i = pattern.size()-1; i >= 0; i--) {
 		if (text[i_text] == pattern[i]) {
+			break;
 			// We've found a match and are adding the index of where the match is
 			if (!i) {
 				found += to_string(i)+'#';
