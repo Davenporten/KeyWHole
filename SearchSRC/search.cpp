@@ -27,20 +27,16 @@ string search(string text, string pattern) {
 			offset++;
 			if (!i && (offset == pattern.size())) {
 				found += to_string(i_text)+'#';
-				i = pattern.size() - 1;
+				i = pattern.size();
 				i_text += (pattern.size() * 2) - 1;
 				offset = 0;
-				if (i_text == text_end) {
-					break;
-				}
-				continue;
 				// thisisitthisisit
 				// thisisit
 			}
 			else {
 				i_text--;
 			}
-			
+			if (i_text >= text_end) break;			
 		}
 		else {
 			// Chars don't match, doing with bad match or good suffix
@@ -59,8 +55,7 @@ string search(string text, string pattern) {
 			// Good suffix
 			
 			// Reset where we are in pattern
-			i = pattern.size() - 1;
-			continue;
+			i = pattern.size();
 		}
 
 
@@ -75,7 +70,7 @@ string search(string text, string pattern) {
 
 
 int main(){
-	string text = "Hey hey over there, hey!";
+	string text = "Hey hey hey there, hey!";
     string pattern = "Hey";
 	cout << text << endl;
 	cout << pattern << endl;
